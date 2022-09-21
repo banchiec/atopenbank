@@ -7,6 +7,17 @@ export const Navbar = styled.header`
 	background: #0000;
 	padding: 10px 15px;
 	@media (min-width: 768px) {
+					position: absolute;
+				margin: 0;
+				color: #000;
+				font-weight: 600;
+				text-align: center;
+				font-size: 14px;
+				margin-top: -10px;
+				margin-left: 10px;
+				z-index: 2;
+			} */
+		}
 	}
 `
 
@@ -56,11 +67,7 @@ export const NavbarRegister = styled.div`
 	padding: 10px 0;
 	text-align: center;
 	@media (min-width: 768px) {
-		width: auto;
 		position: relative;
-		bottom: auto;
-		right: 0;
-		left: auto;
 	}
 `
 export const Button = styled.button`

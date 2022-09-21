@@ -6,7 +6,10 @@ export const Navbar = styled.header`
 	align-items: center;
 	background: #0000;
 	padding: 10px 15px;
+	
 	@media (min-width: 768px) {
+		border: ;
+		justify-content: space-around;
 	}
 `
 
@@ -56,11 +59,7 @@ export const NavbarRegister = styled.div`
 	padding: 10px 0;
 	text-align: center;
 	@media (min-width: 768px) {
-		width: auto;
 		position: relative;
-		bottom: auto;
-		right: 0;
-		left: auto;
 	}
 `
 export const Button = styled.button`

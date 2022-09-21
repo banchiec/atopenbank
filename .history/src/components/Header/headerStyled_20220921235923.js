@@ -6,7 +6,9 @@ export const Navbar = styled.header`
 	align-items: center;
 	background: #0000;
 	padding: 10px 15px;
+
 	@media (min-width: 768px) {
+		border: 1px solid green;
 	}
 `
 
