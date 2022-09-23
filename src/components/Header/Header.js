@@ -10,6 +10,7 @@ import {
 } from './headerStyled'
 
 import OpenbankLogo from '../../assets/img/logo_openbank.png'
+import CustomButton from '../Buttons/CustomButton/CustomButton'
 
 const Header = () => {
 	return (
@@ -24,8 +25,10 @@ const Header = () => {
 				<BiLogIn />
 			</NavbarMenuMobile>
 			<NavbarRegister>
-				<Button primary>Hazte Cliente</Button>
-				<Button>Área Clientes</Button>
+				<Link to={path.LOGINPAGE}>
+					<CustomButton color={'#FF0049'} text={'Hazte Cliente'} />
+				</Link>
+				<CustomButton color={'#002B45'} text={'Hazte Cliente'} />
 			</NavbarRegister>
 		</Navbar>
 	)

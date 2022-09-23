@@ -63,13 +63,3 @@ export const NavbarRegister = styled.div`
 		left: auto;
 	}
 `
-export const Button = styled.button`
-	padding: 10px 25px;
-	font-weight: 500;
-	border: none;
-	background-color: ${(props) => (props.primary ? '#FF0049' : '#002B45')};
-	color: white;
-	font-size: 14px;
-	margin: 0 10px;
-	border-radius: 4px;
-`
