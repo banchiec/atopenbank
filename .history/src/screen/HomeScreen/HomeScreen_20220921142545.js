@@ -1,4 +1,0 @@
-comst HomeScreen = () => {
-
-}
-export defaul

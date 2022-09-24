@@ -1,0 +1,26 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
+const initialState = {
+	acceptInformationLogin: false,
+	deniedInformationLogin: false,
+	userLogin: {},
+}
+
+export const userLoginSlice = createSlice({
+	name: 'userLogin',
+	initialState,
+	reducers: {
+		acceptInformationLogin: (state) => {
+			console.log(state)
+			state.acceptInformation = true
+			state.deniedInformationLogin = false
+		},
+		deniedInformationLogin: (state) => {
+			state.deniedInformation = true
+			state.acceptInformationLogin = false
+		},
+	},
+})
+
+export const { acceptInformation, deniedInformation } = userLoginSlice.actions
+export default userLoginSlice.reducer
