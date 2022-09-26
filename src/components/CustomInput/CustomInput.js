@@ -1,4 +1,3 @@
-import { IoMdEyeOff } from 'react-icons/io'
 import { ContainerInput, Icon, Input } from './customInputStyled'
 
 const CustomInput = ({ icon, textLabel, placeHolder, type }) => {
