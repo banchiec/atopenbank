@@ -1,10 +1,11 @@
 import { ContainerInput, Icon, Input } from './customInputStyled'
 
-const CustomInput = ({ icon, textLabel, placeHolder, type }) => {
+const CustomInput = ({ icon, placeHolder, type, size, lengthSize }) => {
 	return (
 		<ContainerInput>
-			<Input type={type} placeholder={placeHolder} />
+			<Input type={type} placeholder={placeHolder} size={size} />
 			<Icon>{icon}</Icon>
+			{lengthSize && <p>{`0/${lengthSize}`}</p>}
 		</ContainerInput>
 	)
 }
