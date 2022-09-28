@@ -39,6 +39,7 @@ export const ContainerActions = styled.div`
 	margin-top: 1.5em;
 	padding-bottom: 10px;
 	@media (min-width: 768px) {
+    width: 100%;
 	}
 `
 export const Actions = styled.div`
@@ -47,6 +48,7 @@ export const Actions = styled.div`
 	margin-top: 20px;
 	padding: 10px 0;
 	justify-content: space-between;
+  width: 100%;
 	align-items: center;
 	@media (min-width: 768px) {
 		width: 80%;
@@ -72,4 +74,14 @@ export const ContainerText = styled.div`
 		justify-content: center;
 		align-items: center;
 	}
+`
+export const ContainerCheck = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 0 20px;
+`
+export const CheckBox = styled.input`
+  borde: 1px solid green;
 `

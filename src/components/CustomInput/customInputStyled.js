@@ -9,6 +9,7 @@ export const ContainerInput = styled.div`
 		width: 100%;
 	}
 	@media (min-width: 768px) {
+    display: ${props => props.active ? 'block': 'none'}
 		margin: 0;
 		padding: 0;
 		p {

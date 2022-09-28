@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import * as path from '../../utils/paths'
 import { BiLogIn, BiMenuAltLeft } from 'react-icons/bi'
 import {
-	Button,
 	Navbar,
 	NavbarLogo,
 	NavbarMenuMobile,
@@ -26,9 +25,11 @@ const Header = () => {
 			</NavbarMenuMobile>
 			<NavbarRegister>
 				<Link to={path.LOGINPAGE}>
-					<CustomButton color={'#FF0049'} text={'Hazte Cliente'} />
+					<CustomButton 
+						color={'#FF0049'} 
+            text={'Hazte Cliente'} 
+           />
 				</Link>
-				<CustomButton color={'#002B45'} text={'Hazte Cliente'} />
 			</NavbarRegister>
 		</Navbar>
 	)

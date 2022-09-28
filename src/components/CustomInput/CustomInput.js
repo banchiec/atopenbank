@@ -9,6 +9,7 @@ const CustomInput = ({ icon, placeHolder, type, size, lengthSize, onChange }) =>
 				placeholder={placeHolder}
 				size={size}
 				onChange={onChange}
+        required
 				pattern={
 					type === 'password' ? '^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,24}$' : null
 				}
@@ -25,6 +26,7 @@ CustomInput.propTypes = {
 	type: PropTypes.string,
 	size: PropTypes.string,
 	lengthSize: PropTypes.number,
+	onChange: PropTypes.func
 }
 
 export default CustomInput

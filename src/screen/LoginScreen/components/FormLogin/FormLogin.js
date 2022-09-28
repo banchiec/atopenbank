@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { BsEye } from 'react-icons/bs'
+import { AiOutlineInfoCircle } from 'react-icons/ai'
 import CustomInput from '../../../../components/CustomInput/CustomInput'
 import CustomButton from '../../../../components/Buttons/CustomButton/CustomButton'
-import { deniedForm } from '../../../../features/user/userLoginSlice'
-import { AiOutlineInfoCircle } from 'react-icons/ai'
-import { BsEye } from 'react-icons/bs'
+import { acceptForm, deniedForm, errorChangingPassword, passwordChangedSuccessfully } from '../../../../features/user/userLoginSlice'
+import { fetchSetUserLogin } from '../../../../features/user/api/userLoginApi'
+import { submitForm } from '../../../../services/api'
 import {
 	Actions,
 	Article,
@@ -18,8 +20,6 @@ import {
 	Label,
 	Title,
 } from './formLoginStyled'
-import { fetchSetUserLogin } from '../../../../features/user/api/userLoginApi'
-import { submitForm } from '../../../../services/api'
 
 const FormLogin = () => {
 	const dispatch = useDispatch()
@@ -33,21 +33,28 @@ const FormLogin = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		if (password === pwdConfirm) {
+    if(password === ' ' || pwdConfirm === ' ') {
+      console.log("los cm")
+    }
+		if (password === pwdConfirm && (password != '' || pwdConfirm != '')) {
+      console.log("first")
 			const user = {
 				password,
 				pwdConfirm,
 				hintPassword,
 			}
-			dispatch(fetchSetUserLogin(user))
-			submitForm(password, pwdConfirm, hintPassword )
+			submitForm(password, pwdConfirm, hintPassword ).then((response) => {
+        response.status === 200 && (dispatch(fetchSetUserLogin(user)) && dispatch(acceptForm()) && dispatch(passwordChangedSuccessfully())) 
+          response.status === 401 && (
+          dispatch(acceptForm()) && 
+          dispatch(errorChangingPassword()) 
+        )
+      }).catch(error => 
+        error.status === 401 && (dispatch(acceptForm()) && dispatch(errorChangingPassword()))
+        )
 		} else {
-			console.log('object')
-			submitForm('pruebaKO123')
+   		console.log("Las contraseñas no coinciden")
 		}
-		console.log(password)
-		console.log(pwdConfirm)
-		console.log(hintPassword)
 	}
 
 	return (
@@ -74,7 +81,6 @@ const FormLogin = () => {
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 								placeHolder={'Repite  tu contraseña'}
-								required
 							/>
 						</FormControl>
 						<FormControl size="m">
@@ -86,7 +92,6 @@ const FormLogin = () => {
 								value={pwdConfirm}
 								icon={<BsEye />}
 								placeHolder={'Repite  tu contraseña'}
-								required
 							/>
 						</FormControl>
 					</FormControlPanel>
@@ -105,8 +110,7 @@ const FormLogin = () => {
 							value={hintPassword}
 							onChange={(e) => setHinkPassword(e.target.value)}
 							size="L"
-							required
-							lengthSize={60}
+							lengthSize={255}
 						/>
 					</FormControl>
 				</Form>

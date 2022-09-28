@@ -1,14 +1,23 @@
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Container, PageItem } from './paginationStyled'
+import { Container, ContainerItem, PageItem, Pivot } from './paginationStyled'
 
 const Pagination = () => {
 	const { activePage } = useSelector((state) => state.userLogin)
+
 	return (
 		<Container>
-			<PageItem active={activePage.pageInformationActive ? true : false}>1</PageItem>
-			<PageItem active={activePage.pageFormLoginActive ? true : false}>2</PageItem>
-			<PageItem>3</PageItem>
+      <ContainerItem>
+		 	  <PageItem active={activePage.pageInformationActive ? true : false}>1 </PageItem>
+        {activePage.pageInformationActive && <Pivot/> }
+      </ContainerItem>
+      <ContainerItem>
+			  <PageItem active={activePage.pageFormLoginActive ? true : false}>2</PageItem>
+        {activePage.pageFormLoginActive && <Pivot/> }
+      </ContainerItem>
+      <ContainerItem>
+			  <PageItem active={activePage.pageFeedBackActive ? true : false}>3</PageItem>
+        {activePage.pageFeedBackActive && <Pivot/> }
+      </ContainerItem>
 		</Container>
 	)
 }

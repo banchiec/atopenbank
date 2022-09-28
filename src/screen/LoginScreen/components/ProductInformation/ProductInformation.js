@@ -3,26 +3,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import CardInfo from '../../../../components/Cards/CardInfo/CardInfo'
 import CardTextInfo from '../../../../components/Cards/CardTextInfo/CardTextInfo'
 import CustomButton from '../../../../components/Buttons/CustomButton/CustomButton'
+import { dataInfo, textInfo } from '../../../../utils/data'
 import {
 	acceptInformation,
 	deniedInformation,
 } from '../../../../features/user/userLoginSlice'
-import { dataInfo, textInfo } from '../../../../utils/data'
 import {
 	Actions,
+	CheckBox,
 	ContainerActions,
 	ContainerCard,
+	ContainerCheck,
 	ContainerInformation,
 	ContainerInformationTitle,
 	ContainerText,
 	Title,
 } from './productInformationStyled'
+import { useState } from 'react'
 
 const ProductInformation = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const user = useSelector((state) => state.userLogin)
-	console.log(user)
+  const [checkInformation, setCheckInformation] = useState(false)
 
 	const handleDeniedInformation = () => {
 		dispatch(deniedInformation())
@@ -44,9 +47,22 @@ const ProductInformation = () => {
 			</ContainerCard>
 			<ContainerText>
 				{textInfo.map((text) => {
-					return <CardTextInfo key={text.id} title={text.title} text={text.text} />
+					return <CardTextInfo key={text.id} title={text.title} text={text.text} size={'M'} />
 				})}
+				
 			</ContainerText>
+      <ContainerCheck>
+        <label htmlFor='chbx-confirm'>Aceptar las condiciones
+          <CheckBox 
+            type='checkbox' 
+            id='chbx-confirm' 
+            value={checkInformation}
+            onChange={(e) =>{
+              setCheckInformation(e.target.checked)}
+            } 
+          />
+        </label>
+      </ContainerCheck>
 			<ContainerActions>
 				<Actions>
 					<CustomButton
@@ -58,6 +74,7 @@ const ProductInformation = () => {
 					<CustomButton
 						onClick={handleAcceptInformation}
 						color={'#002B45'}
+            disabled={!checkInformation}
 						text={'Siguiente'}
 					/>
 				</Actions>

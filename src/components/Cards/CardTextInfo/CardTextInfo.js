@@ -1,8 +1,11 @@
-import { Article, CardText, Description, SubTitle, Title } from './cardTextInfoStyled'
+import { Article, CardText, Description, Icon, Title } from './cardTextInfoStyled'
 
-const CardTextInfo = ({ title, text }) => {
+const CardTextInfo = ({ title, text, icon, size, colorIcon }) => {
 	return (
-		<CardText>
+		<CardText size={size} >
+      <Icon colorIcon={colorIcon}>
+        {icon}
+      </Icon>
 			<Article>
 				<Title>{title}</Title>
 				<Description>{text}</Description>
@@ -10,4 +13,5 @@ const CardTextInfo = ({ title, text }) => {
 		</CardText>
 	)
 }
+
 export default CardTextInfo

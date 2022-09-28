@@ -7,6 +7,7 @@ export const Navbar = styled.header`
 	background: #0000;
 	padding: 10px 15px;
 	@media (min-width: 768px) {
+    height: 30px;
 	}
 `
 
@@ -31,7 +32,7 @@ export const NavbarLogo = styled.div`
 	@media (min-width: 768px) {
 		img {
 			padding-left: 0.5em;
-			width: 150px;
+			width: 120px;
 		}
 	}
 `

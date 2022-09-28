@@ -16,7 +16,7 @@ export const Card = styled.div`
 export const Image = styled.img`
 	width: 50%;
 	@media (min-width: 768px) {
-		width: 30%;
+		width: 40%;
 	}
 `
 
@@ -26,6 +26,7 @@ export const TextInfo = styled.p`
 	text-align: center;
 	font-weight: 450;
 	@media (min-width: 768px) {
-		width: 60%;
+    font-size: 14px;
+		width: 80%;
 	}
 `

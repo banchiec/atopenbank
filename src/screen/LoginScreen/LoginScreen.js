@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import Feedback from './components/Feedback/FeedBack'
 import FormLogin from './components/FormLogin/FormLogin'
 import Pagination from './components/Pagination/Pagination'
 import ProductInformation from './components/ProductInformation/ProductInformation'
@@ -12,6 +13,7 @@ const LoginScreen = () => {
 				<Pagination />
 				{activePage.pageInformationActive && <ProductInformation />}
 				{activePage.pageFormLoginActive && <FormLogin />}
+        {activePage.pageFeedBackActive && <Feedback/>}
 			</div>
 		</ContainerLogin>
 	)
