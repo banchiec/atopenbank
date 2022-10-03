@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import CardInfo from '../../../../components/Cards/CardInfo/CardInfo'
@@ -19,12 +20,10 @@ import {
 	ContainerText,
 	Title,
 } from './productInformationStyled'
-import { useState } from 'react'
 
 const ProductInformation = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const user = useSelector((state) => state.userLogin)
   const [checkInformation, setCheckInformation] = useState(false)
 
 	const handleDeniedInformation = () => {
@@ -47,7 +46,7 @@ const ProductInformation = () => {
 			</ContainerCard>
 			<ContainerText>
 				{textInfo.map((text) => {
-					return <CardTextInfo key={text.id} title={text.title} text={text.text} size={'M'} />
+					return <CardTextInfo key={text.id} title={text.title} text={text.text} size={'L'} />
 				})}
 				
 			</ContainerText>

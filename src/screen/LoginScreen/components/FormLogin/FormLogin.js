@@ -4,6 +4,7 @@ import { BsEye } from 'react-icons/bs'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 import CustomInput from '../../../../components/CustomInput/CustomInput'
 import CustomButton from '../../../../components/Buttons/CustomButton/CustomButton'
+import AlertForm from '../../../../components/Alerts/AlertForm/AlertForm'
 import { acceptForm, deniedForm, errorChangingPassword, passwordChangedSuccessfully } from '../../../../features/user/userLoginSlice'
 import { fetchSetUserLogin } from '../../../../features/user/api/userLoginApi'
 import { submitForm } from '../../../../services/api'
@@ -26,6 +27,8 @@ const FormLogin = () => {
 	const [password, setPassword] = useState('')
 	const [pwdConfirm, setPwdConfirm] = useState('')
 	const [hintPassword, setHinkPassword] = useState('')
+  const [alert, setAlert] = useState(false)
+  const [textAlert, setTextAlert] = useState('')
 
 	const handleDeniedForm = () => {
 		dispatch(deniedForm())
@@ -33,11 +36,7 @@ const FormLogin = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-    if(password === ' ' || pwdConfirm === ' ') {
-      console.log("los cm")
-    }
-		if (password === pwdConfirm && (password != '' || pwdConfirm != '')) {
-      console.log("first")
+		if (password === pwdConfirm && (password != '' && pwdConfirm != '')) {
 			const user = {
 				password,
 				pwdConfirm,
@@ -52,10 +51,20 @@ const FormLogin = () => {
       }).catch(error => 
         error.status === 401 && (dispatch(acceptForm()) && dispatch(errorChangingPassword()))
         )
-		} else {
-   		console.log("Las contraseñas no coinciden")
+		} 
+    if(password === '' || pwdConfirm === ''){
+      setTextAlert('Necesitas rellenar los campos')
+      setAlert(true)
 		}
+    if(password != pwdConfirm){
+      setTextAlert('Las constraseñas son diferentes')
+      setAlert(true)
+    }
 	}
+
+  const handleCloseAlert = () => {
+    setAlert(false)
+  }
 
 	return (
 		<ContainerLogin>
@@ -126,6 +135,13 @@ const FormLogin = () => {
 					<CustomButton onClick={handleSubmit} color={'#002B45'} text={'Siguiente'} />
 				</Actions>
 			</ContainerActions>
+      {alert && (
+        <AlertForm
+          handleShowAlert={alert}
+          text={textAlert}
+          handleCloseAlert={handleCloseAlert}
+        />
+      )}
 		</ContainerLogin>
 	)
 }

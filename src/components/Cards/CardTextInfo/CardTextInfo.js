@@ -1,4 +1,5 @@
 import { Article, CardText, Description, Icon, Title } from './cardTextInfoStyled'
+import PropTypes from 'prop-types'
 
 const CardTextInfo = ({ title, text, icon, size, colorIcon }) => {
 	return (
@@ -12,6 +13,14 @@ const CardTextInfo = ({ title, text, icon, size, colorIcon }) => {
 			</Article>
 		</CardText>
 	)
+}
+
+CardTextInfo.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
+  size: PropTypes.string,
+  icon: PropTypes.node,
+  colorIcon: PropTypes.string,
 }
 
 export default CardTextInfo

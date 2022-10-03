@@ -9,7 +9,7 @@ const CardInfo = ({ img, text }) => {
 		</Card>
 	)
 }
-CardInfo.prototypes = {
+CardInfo.propTypes = {
   img: PropTypes.string,
   text: PropTypes.string
 }
