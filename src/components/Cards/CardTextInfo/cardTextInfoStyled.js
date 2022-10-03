@@ -59,6 +59,6 @@ export const Description = styled.div`
   text-align: center;
   @media (min-width: 768px){
     text-align: start;
-		width: ${props => props.size === 'L' ? '90%': props.size === 'M' ? '60%': '40%'};
+    width: 90%;
   }
 `

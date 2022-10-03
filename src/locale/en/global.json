@@ -1,5 +1,41 @@
 {
 	"header": {
-		"hello-world": "Hello world"
-	}
+		"become-customer": "Become a Customer",
+    "es": "es",
+    "en": "en"
+	},
+  "productInformation": {
+    "title": "Create your Password Manager",
+    "next": "Next",
+    "cancel": "Cancel",
+    "information-icon-one": "Store all your passwords, data or any information here, forget about paper notes and unprotected applications",
+    "information-icon-two": "Create your master key: only you can access your secrets with it",
+    "accept-the-conditions": "Accept the conditions",
+    "information-title-one": "How does it work",
+    "information-description-one": "First of all, you must create a different password for your electronic belongings. You will not be able to recover your password, so remember it well.",
+    "information-title-two": "What data can you save",
+    "information-description-two":"For example, your card number, the PIN and PUK of your mobile phone, the serial number of one of your devices or any information you need to have in a safe place."
+  },
+  "formLogin": {
+    "title": "Create your Password Manager",
+    "next": "Next",
+    "cancel": "Cancel",
+    "first-text": "Store all your passwords, data or any information here, forget about paper notes and unprotected applications",
+    "second-text": "You will not be able to recover your password, so remember it well.",
+    "label-create-password": "Create your Master Password",
+    "label-repeat-password": "Repeat your Master Password",
+    "placeholder-label-create-password": "Type password",
+    "placeholder-label-repeat-password": "Repeat password",
+    "info-label-password": "You can also create a hint to help you remember your master password.",
+    "hint-info-label": "Create your hint to rememeber your password. (optional)",
+    "placeholder-hint": "Type hint"
+  },
+  "feedback": {
+    "title-error": "An error has occured",
+    "title-success": "¡Your Password Manager this created!",
+    "info-error": "We were unable to modify your Master Password. Try again later.",
+    "info-success": "Lorem ipsum dolor sit ament, consectetur adipiscing elit. Maecenas varius totor nibh.",
+    "button-text-success": "Access",
+    "button-text-error": "Back to Password Manager."
+  }
 }

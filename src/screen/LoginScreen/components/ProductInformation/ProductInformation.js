@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import CardInfo from '../../../../components/Cards/CardInfo/CardInfo'
 import CardTextInfo from '../../../../components/Cards/CardTextInfo/CardTextInfo'
 import CustomButton from '../../../../components/Buttons/CustomButton/CustomButton'
-import { dataInfo, textInfo } from '../../../../utils/data'
+import Group from '../../../../assets/img/group.svg'
+import Group3 from '../../../../assets/img/group-3.svg'
 import {
 	acceptInformation,
 	deniedInformation,
@@ -20,16 +21,20 @@ import {
 	ContainerText,
 	Title,
 } from './productInformationStyled'
+import { useTranslation } from 'react-i18next'
 
 const ProductInformation = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
+
+  const [t, i18n] = useTranslation("global")
   const [checkInformation, setCheckInformation] = useState(false)
 
 	const handleDeniedInformation = () => {
 		dispatch(deniedInformation())
 		navigate('/', { replace: true })
 	}
+
 	const handleAcceptInformation = () => {
 		dispatch(acceptInformation())
 	}
@@ -37,21 +42,32 @@ const ProductInformation = () => {
 	return (
 		<ContainerInformation>
 			<ContainerInformationTitle>
-				<Title>Crea tu Password Manager</Title>
+				<Title>{t('productInformation.title')}</Title>
 			</ContainerInformationTitle>
 			<ContainerCard>
-				{dataInfo.map((info) => {
-					return <CardInfo key={info.id} img={info.img} text={info.text} />
-				})}
+        <CardInfo 
+          img={Group}
+          text={t('productInformation.information-icon-one')}
+        />
+        <CardInfo 
+          img={Group3}
+          text={t('productInformation.information-icon-two')}
+        />
 			</ContainerCard>
 			<ContainerText>
-				{textInfo.map((text) => {
-					return <CardTextInfo key={text.id} title={text.title} text={text.text} size={'L'} />
-				})}
-				
+        <CardTextInfo
+          title={t('productInformation.information-title-one')}
+          text={t('productInformation.information-description-one')}
+          size={'L'}
+        />
+        <CardTextInfo
+          title={t('productInformation.information-title-two')}
+          text={t('productInformation.information-description-two')}
+          size={'L'}
+        />
 			</ContainerText>
       <ContainerCheck>
-        <label htmlFor='chbx-confirm'>Aceptar las condiciones
+        <label htmlFor='chbx-confirm'>{t("productInformation.accept-the-conditions")}
           <CheckBox 
             type='checkbox' 
             id='chbx-confirm' 
@@ -68,13 +84,13 @@ const ProductInformation = () => {
 						onClick={handleDeniedInformation}
 						color={'#ffff'}
 						textColor={'#000000'}
-						text={'Cancelar'}
+						text={t("productInformation.cancel")}
 					/>
 					<CustomButton
 						onClick={handleAcceptInformation}
 						color={'#002B45'}
             disabled={!checkInformation}
-						text={'Siguiente'}
+						text={t("productInformation.next")}
 					/>
 				</Actions>
 			</ContainerActions>

@@ -7,7 +7,7 @@ export const Navbar = styled.header`
 	background: #0000;
 	padding: 10px 15px;
 	@media (min-width: 768px) {
-    height: 30px;
+    height: 50px;
 	}
 `
 
@@ -57,10 +57,39 @@ export const NavbarRegister = styled.div`
 	padding: 10px 0;
 	text-align: center;
 	@media (min-width: 768px) {
-		width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+		width: 300px;
+    padding: 0;
 		position: relative;
 		bottom: auto;
-		right: 0;
+		right: 10px;
 		left: auto;
 	}
 `
+export const Select = styled.select`
+	width: 20%;
+  height: 45px;
+  background: white;
+  color: gray;
+  padding-left: 5px;
+  font-size: 12px;
+  border: none;
+  margin-left: 10px;
+
+  option {
+    color: black;
+    background: white;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+  }
+  img{
+    border: 1px solid green;
+    width: 100%;
+  }
+`
+

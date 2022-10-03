@@ -6,9 +6,11 @@ import { Actions, ContainerActions, ContainerFeedBack, ContainerTextInfo } from 
 import CustomButton from "../../../../components/Buttons/CustomButton/CustomButton"
 import { resetChangingPassword } from "../../../../features/user/userLoginSlice"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const Feedback = () => {
   const navigate = useNavigate()
+  const [t, i18n] = useTranslation('global')
   const { userLogin } = useSelector((state) => state.userLogin)
   const dispatch = useDispatch()
 
@@ -24,16 +26,16 @@ const Feedback = () => {
         {userLogin.passwordChanged.passwordChangedSuccessfully? (
           <CardTextInfo
             icon = {<FiCheckCircle/>}  
-            title={'¡Tu Password Manager ya está creado!'}
-            text={'Lorem ipsum dolor sit ament, consectetur adipiscing elit. Maecenas varius totor nibh.'}
+            title={t('feedback.title-success')}
+            text={t('feedback.info-success')}
             colorIcon={'green'}
             size={'L'}
           />
         ):(
           <CardTextInfo
             icon={<BiError/>}
-            title={'Ha habido un error'}
-            text={'No hemos podido modificar tu Contraseña Maestra. Inténtalo más tarde'}
+            title={t('feedback.title-error')}
+            text={t('feedback.info-error')}
             colorIcon={'red'}
             size={'L'}
           />
@@ -46,7 +48,7 @@ const Feedback = () => {
               textColor='red'
               color={'#fff'}
               onClick={handleReturnChangePassword}
-              text={'Acceder'}
+              text={t('feedback.button-text-success')}
             />
           )}
           { userLogin.passwordChanged.errorChangingPassword === true && (
@@ -54,7 +56,7 @@ const Feedback = () => {
               onClick={handleReturnChangePassword}
               textColor='red'
               color={'#fff'}
-              text={'Volver a Password Manager'}
+              text={t('feedback.button-text-error')}
             />
           )}
         </Actions>

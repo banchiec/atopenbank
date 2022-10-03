@@ -21,9 +21,11 @@ import {
 	Label,
 	Title,
 } from './formLoginStyled'
+import { useTranslation } from 'react-i18next'
 
 const FormLogin = () => {
 	const dispatch = useDispatch()
+  const [t, i18n] = useTranslation('global')
 	const [password, setPassword] = useState('')
 	const [pwdConfirm, setPwdConfirm] = useState('')
 	const [hintPassword, setHinkPassword] = useState('')
@@ -36,7 +38,7 @@ const FormLogin = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		if (password === pwdConfirm && (password != '' && pwdConfirm != '')) {
+		if (password === pwdConfirm && (password !== '' && pwdConfirm !== '')) {
 			const user = {
 				password,
 				pwdConfirm,
@@ -56,7 +58,7 @@ const FormLogin = () => {
       setTextAlert('Necesitas rellenar los campos')
       setAlert(true)
 		}
-    if(password != pwdConfirm){
+    if(password !== pwdConfirm){
       setTextAlert('Las constraseñas son diferentes')
       setAlert(true)
     }
@@ -69,53 +71,51 @@ const FormLogin = () => {
 	return (
 		<ContainerLogin>
 			<ContainerLoginTitle>
-				<Title>Crea tu Password Manager</Title>
+				<Title>{t('formLogin.title')}</Title>
 			</ContainerLoginTitle>
 			<Article>
 				<p>
-					En primer lugar, debaes crear una contraseña diferente para sus pertenecias
-					electrónicas.
+          {t('formLogin.first-text')}
 				</p>
 				<br />
-				<p>No podrás recuperar tu contraseña, asi que recuérdalo bien.</p>
+				<p>{t('formLogin.second-text')}</p>
 			</Article>
 			<ContainerForm>
 				<Form onSubmit={handleSubmit}>
 					<FormControlPanel>
 						<FormControl size="m">
-							<label>Crea tu Contraseña Maestra</label>
+							<label>{t('formLogin.label-create-password')}</label>
 							<CustomInput
 								type={'password'}
 								icon={<BsEye />}
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
-								placeHolder={'Repite  tu contraseña'}
+								placeHolder={t('formLogin.placeholder-label-create-password')}
 							/>
 						</FormControl>
 						<FormControl size="m">
-							<label>Repite tu Contraseña Maestra</label>
+							<label>{t('formLogin.label-repeat-password')}</label>
 							<CustomInput
 								type={'password'}
 								autocomplete="new-password"
 								onChange={(e) => setPwdConfirm(e.target.value)}
 								value={pwdConfirm}
 								icon={<BsEye />}
-								placeHolder={'Repite  tu contraseña'}
+								placeHolder={t('formLogin.placeholder-label-repeat-password')}
 							/>
 						</FormControl>
 					</FormControlPanel>
 					<FormControl size="l">
 						<p>
-							También puedes crear una pista que te ayude a recordar tu contraseña
-							maestra.
+              {t('formLogin.info-label-password')}
 						</p>
 						<Label>
-							<label>Crea tu pista para recordar tu contraseña (opcional) </label>
+              {t('formLogin.hint-info-label')}
 							<AiOutlineInfoCircle />
 						</Label>
 						<CustomInput
 							type={'text'}
-							placeHolder={'Introduce tu pista'}
+							placeHolder={t('formLogin.placeholder-hint')}
 							value={hintPassword}
 							onChange={(e) => setHinkPassword(e.target.value)}
 							size="L"
@@ -130,9 +130,13 @@ const FormLogin = () => {
 						onClick={handleDeniedForm}
 						color={'#ffff'}
 						textColor={'#000000'}
-						text={'Cancelar'}
+						text={t('formLogin.cancel')}
 					/>
-					<CustomButton onClick={handleSubmit} color={'#002B45'} text={'Siguiente'} />
+					<CustomButton 
+            onClick={handleSubmit} 
+            color={'#002B45'} 
+            text={t('formLogin.next')} 
+           />
 				</Actions>
 			</ContainerActions>
       {alert && (

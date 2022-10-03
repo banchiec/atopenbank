@@ -1,5 +1,41 @@
 {
 	"header": {
-		"hello-world": "Hola mundo"
-	}
+		"become-customer": "Hazte cliente",
+    "es": "es",
+    "en": "en"
+	},
+	"productInformation": {
+    "title": "Crea tu Password Manager",
+		"next": "Siguiente",
+    "cancel": "Cancelar",
+    "information-icon-one": "Guarda aquí todas tus contraseñas, datos o cualquier información, olvídate de notas en papel y aplicaciones desprotegidas",
+    "information-icon-two": "Crea tu clave maestra: solo tú podras acceder a tus secretos con ella",
+    "accept-the-conditions": "Acepta las condiciones",
+    "information-title-one": "Cómo funciona",
+    "information-description-one": "En primer lugar, debes crear una contraseña diferente para sus pertenecias electrónicas, No podrás recuperar tu contraseña, así que recuérdala bien.",
+    "information-title-two": "Qué datos puedes guardar",
+    "information-description-two":"Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en un lugar seguro."
+	},
+  "formLogin": {
+    "title": "Crea tu Password Manager",
+    "next": "Siguiente",
+    "cancel": "Cancelar",
+    "first-text": "Guarda aquí todas tus contraseñas, datos o cualquier información, olvídate de notas en papel y aplicaciones desprotegidas",
+    "second-text": "No podrás recuperar tu contraseña, asi que recuérdalo bien.",
+    "label-create-password": "Crea tu Contraseña Maestra",
+    "label-repeat-password": "Repite tu Contraseña Maestra",
+    "placeholder-label-create-password": "Escribe contraseña",
+    "placeholder-label-repeat-password": "Repite contraseña",
+    "info-label-password": "También puedes crear una pista que te ayude a recordar tu contraseña maestra.",
+    "hint-info-label": "Crea tu pista para recordar tu contraseña master. (opcional)",
+    "placeholder-hint": "Escribe tu pista"
+  },
+  "feedback": {
+    "title-error": "Ha habido un error",
+    "title-success": "¡Tu Password Manager ya está creado!",
+    "info-error": "No hemos podido modificar tu Contraseña Maestra. Inténtalo más tarde.",
+    "info-success": "Lorem ipsum dolor sit ament, consectetur adipiscing elit. Maecenas varius totor nibh.",
+    "button-text-success": "Acceder",
+    "button-text-error": "volver a Password Manager."
+  }
 }
